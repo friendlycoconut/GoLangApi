@@ -23,8 +23,7 @@ type App struct {
 // Initialize create a database connection
 func (a *App) Initialize() {
 	fmt.Println(">< Initializing... ><")
-	connectionString := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
-		DB_USER, DB_PASSWORD, DB_username) //DB configuration lies in dbConfig file
+	connectionString := fmt.Sprintf("postgres://postgres:password@postgres/postgres?sslmode=disable") //DB configuration lies in dbConfig file
 
 	var err error
 	a.DB, err = sql.Open("postgres", connectionString)
